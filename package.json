@@ -1,11 +1,11 @@
 {
   "name": "server-lumi-bank",
   "version": "1.0.0",
-  "main": "build/server.js",
+  "main": "build/src/server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn src/server.ts",
     "build": "tsc",
-    "start": "node build/server.js",
+    "start": "node build/src/server.js",
     "prisma": "prisma"
   },
   "dependencies": {
