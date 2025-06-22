@@ -6,7 +6,8 @@
     "dev": "ts-node-dev --respawn src/server.ts",
     "build": "tsc && ls -R build",
     "start": "node build/server.js",
-    "prisma": "prisma"
+    "prisma": "prisma",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",
