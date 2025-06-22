@@ -9,8 +9,8 @@ const app = Fastify({ logger: true });
 
 // 👇 Registra o CORS permitindo a origem do seu frontend Vercel
 app.register(cors, {
-  origin: 'https://lumi-bank-khlb0sh08-evelynhelena1gmailcoms-projects.vercel.app',
-  credentials: true, // Se você precisar enviar cookies/autenticação
+  origin: true,
+  credentials: true,
 });
 
 // Registra rotas depois do CORS
