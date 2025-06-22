@@ -3,8 +3,9 @@ import 'dotenv/config';
 import Fastify from 'fastify';
 import cors from '@fastify/cors'; // 👈 import do plugin de CORS
 import userRoutes from './routes/userRoutes';
+import transactionRoutes from './routes/accountRoutes';
 
-const PORT = parseInt(process.env.PORT || '3000', 10);
+const PORT = parseInt(process.env.PORT || '3001', 10);
 const app = Fastify({ logger: true });
 
 // 👇 Registra o CORS permitindo a origem do seu frontend Vercel
@@ -15,6 +16,8 @@ app.register(cors, {
 
 // Registra rotas depois do CORS
 app.register(userRoutes);
+app.register(transactionRoutes);
+
 
 app.listen({ port: PORT, host: '0.0.0.0' }, (err, address) => {
   if (err) {
