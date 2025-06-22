@@ -3,7 +3,8 @@ import 'dotenv/config';
 import Fastify from 'fastify';
 import cors from '@fastify/cors'; // 👈 import do plugin de CORS
 import userRoutes from './routes/userRoutes';
-import transactionRoutes from './routes/accountRoutes';
+import accountRoutes from './routes/accountRoutes';
+import transactionRoutes from './routes/transactionRoutes';
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const app = Fastify({ logger: true });
@@ -12,10 +13,12 @@ const app = Fastify({ logger: true });
 app.register(cors, {
   origin: true,
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
 });
 
 // Registra rotas depois do CORS
 app.register(userRoutes);
+app.register(accountRoutes);
 app.register(transactionRoutes);
 
 
